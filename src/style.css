@@ -1,5 +1,118 @@
 @import "tailwindcss";
 
+/* Custom base styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    @apply m-0 p-0 font-sans;
+}
+
+/* Custom typography */
 h1 {
     @apply font-sans font-bold text-5xl;
+}
+
+h2 {
+    @apply font-sans font-semibold text-2xl;
+}
+
+h3 {
+    @apply font-sans font-medium text-lg;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Animation utilities */
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Glass morphism effect enhancement */
+.glass {
+    @apply bg-white/20 backdrop-blur-sm;
+}
+
+/* Weather card hover effects */
+.weather-card {
+    @apply transition-all duration-300 ease-in-out;
+}
+
+.weather-card:hover {
+    @apply transform scale-105 shadow-2xl;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-white/10 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-white/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-white/50;
+}
+
+/* Focus states for accessibility */
+input:focus,
+button:focus,
+a:focus {
+    @apply outline-none ring-2 ring-white/60 ring-offset-2 ring-offset-transparent;
+}
+
+/* Responsive text adjustments */
+@media (max-width: 640px) {
+    h1 {
+        @apply text-3xl;
+    }
+
+    h2 {
+        @apply text-xl;
+    }
 }
