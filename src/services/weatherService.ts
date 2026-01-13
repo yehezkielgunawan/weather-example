@@ -8,6 +8,11 @@ import type {
   DailyForecast,
 } from "../types";
 
+const createAuthHeaders = (apiKey: string): HeadersInit => ({
+  Authorization: `Bearer ${apiKey}`,
+  "Content-Type": "application/json",
+});
+
 export const searchLocations = async (
   query: string,
   apiKey: string,
@@ -16,9 +21,12 @@ export const searchLocations = async (
     throw new Error("AccuWeather API key is required");
   }
 
-  const url = `${ACCU_WEATHER_ENDPOINT}/locations/v1/cities/search?apikey=${apiKey}&q=${encodeURIComponent(query)}`;
+  const url = `${ACCU_WEATHER_ENDPOINT}/locations/v1/cities/search?q=${encodeURIComponent(query)}`;
 
-  const response = await fetch(url);
+  const response = await fetch(url, {
+    method: "GET",
+    headers: createAuthHeaders(apiKey),
+  });
 
   if (!response.ok) {
     throw new Error(`Failed to search locations: ${response.statusText}`);
@@ -42,9 +50,12 @@ export const getCurrentConditions = async (
     throw new Error("AccuWeather API key is required");
   }
 
-  const url = `${ACCU_WEATHER_ENDPOINT}/currentconditions/v1/${locationKey}?apikey=${apiKey}&details=true`;
+  const url = `${ACCU_WEATHER_ENDPOINT}/currentconditions/v1/${locationKey}?details=true`;
 
-  const response = await fetch(url);
+  const response = await fetch(url, {
+    method: "GET",
+    headers: createAuthHeaders(apiKey),
+  });
 
   if (!response.ok) {
     throw new Error(`Failed to get current conditions: ${response.statusText}`);
@@ -63,9 +74,12 @@ export const get3DayForecast = async (
     throw new Error("AccuWeather API key is required");
   }
 
-  const url = `${ACCU_WEATHER_ENDPOINT}/forecasts/v1/daily/5day/${locationKey}?apikey=${apiKey}&metric=true`;
+  const url = `${ACCU_WEATHER_ENDPOINT}/forecasts/v1/daily/5day/${locationKey}?metric=true`;
 
-  const response = await fetch(url);
+  const response = await fetch(url, {
+    method: "GET",
+    headers: createAuthHeaders(apiKey),
+  });
 
   if (!response.ok) {
     throw new Error(`Failed to get forecast: ${response.statusText}`);
