@@ -37,7 +37,7 @@ jobs:
       - name: Build (Vite)
         run: pnpm build
         env:
-          ACCU_WEATHER_API_KEY: ${{ secrets.ACCU_WEATHER_API_KEY }}
+          ACCUWEATHER_API_KEY: ${{ secrets.ACCUWEATHER_API_KEY }}
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
