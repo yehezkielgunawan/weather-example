@@ -14,6 +14,7 @@
 - For API integration, use Fetch API instead of Axios
 - Use Tailwind CSS for styling
 - We'll use the Weather API from AccuWeather Core Weather API: `https://developer.accuweather.com`
+- For the authentication, use standard `Authorization` header with API key instead of query parameters
 - Use Context7
 
 ## Project Structure
