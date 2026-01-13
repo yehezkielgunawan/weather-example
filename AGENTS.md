@@ -4,6 +4,7 @@
 - Install deps: `pnpm install`
 - Start dev server: `pnpm dev`
 - Build project: `pnpm build`
+- Test project: `pnpm test`
 
 ## Code style
 - TypeScript strict mode
