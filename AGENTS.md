@@ -15,6 +15,7 @@
 - Use Tailwind CSS for styling
 - We'll use the Weather API from AccuWeather Core Weather API: `https://developer.accuweather.com`
 - For the authentication, use standard `Authorization` header with API key instead of query parameters
+- The API Key var name from AccuWeather: `ACCUWEATHER_API_KEY`
 - Use Context7
 
 ## Project Structure
@@ -27,7 +28,7 @@
 - `index.tsx` - Main entry point for the application
 
 ## Project Specifications
-- By Default, display the today's weather for a predefined location (in this case: Jakarta), also show 3 days weather forecast for this predefined location.
+- By default, display the today's weather for a predefined location (in this case: Jakarta), also show 3 days weather forecast for this predefined location.
 - Allow users to search for other locations and display their weather information.
 - Show essential today's weather details: temperature, humidity, wind speed, and weather conditions (e.g : sunny, rainy).
 - Also provides the 3 days weather forecast for the selected location.
