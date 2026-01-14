@@ -23,7 +23,7 @@
   - `components/` - Reusable UI components
   - `services/` - API service integrations
 - `constants.ts` - Application-wide constants
-- `styles.css` - Global styles using Tailwind CSS
+- `style.css` - Global styles using Tailwind CSS
 - `renderer.tsx` - Hono renderer setup
 - `index.tsx` - Main entry point for the application
 
